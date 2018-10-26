@@ -6,8 +6,11 @@ using UnityEngine.AI;
 public class MinionsMovements : MonoBehaviour
 {
     NavMeshAgent nav;
+    public Color colorOfMinion;
     //public Transform target;
     public float speed;
+
+    Vector3 startPosition;
     
     
 
@@ -20,6 +23,7 @@ public class MinionsMovements : MonoBehaviour
 
         nav.SetDestination(GetRandomTarget());
 
+        startPosition = this.transform.position;
     }
 
     Vector3 GetRandomTarget()
@@ -27,12 +31,35 @@ public class MinionsMovements : MonoBehaviour
 
         Vector3 position = new Vector3(Random.Range(-20.0f, 20.0f), 0, Random.Range(-20.0f, 20.0f));
 
+        Vector3 distance = transform.position - position;
+        while (distance.sqrMagnitude < 10)
+        {
+            position = GetRandomTarget();
+        }
         return position;
 
 
 
 
-        
+
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if ((colorOfMinion == Color.red && collision.collider.name == "GoalRed")
+            ||
+            (colorOfMinion == Color.yellow && collision.collider.name == "GoalYellow")
+            ||
+            (colorOfMinion == Color.blue && collision.collider.name == "GoalBlue")
+            ||
+            (colorOfMinion == Color.green && collision.collider.name == "GoalGreen"))
+        {
+            nav.SetDestination(startPosition);
+        }
+
+
+
     }
 
     // Update is called once per frame
@@ -48,16 +75,9 @@ public class MinionsMovements : MonoBehaviour
         {
 
             
-            Vector3 random = GetRandomTarget();
-            Vector3 distance = transform.position - random;
-
-            while(distance.sqrMagnitude < 10)
-            {
-                random = GetRandomTarget();
-            }
-
            
-             nav.SetDestination(random);
+           
+             nav.SetDestination(GetRandomTarget());
             
 
 
