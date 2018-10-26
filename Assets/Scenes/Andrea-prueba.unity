@@ -342,7 +342,7 @@ PrefabInstance:
     - target: {fileID: 79139090398075592, guid: cc2893fafef2ceb409c63060e2c89f3b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.7
+      value: -14.2
       objectReference: {fileID: 0}
     - target: {fileID: 79139090398075592, guid: cc2893fafef2ceb409c63060e2c89f3b,
         type: 3}
@@ -352,7 +352,7 @@ PrefabInstance:
     - target: {fileID: 79139090398075592, guid: cc2893fafef2ceb409c63060e2c89f3b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.1
+      value: -31.4
       objectReference: {fileID: 0}
     - target: {fileID: 79139090398075592, guid: cc2893fafef2ceb409c63060e2c89f3b,
         type: 3}
@@ -472,5 +472,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455e78d85613c7043ac923a3740e62ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorOfMinion: {r: 1, g: 0, b: 0, a: 0}
   speed: 20
