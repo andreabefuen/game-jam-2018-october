@@ -24,6 +24,8 @@ public class MinionsMovements : MonoBehaviour
         nav.SetDestination(GetRandomTarget());
 
         startPosition = this.transform.position;
+
+        colorOfMinion = Color.yellow;
     }
 
     Vector3 GetRandomTarget()
@@ -45,21 +47,20 @@ public class MinionsMovements : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if ((colorOfMinion == Color.red && collision.collider.name == "GoalRed")
-            ||
-            (colorOfMinion == Color.yellow && collision.collider.name == "GoalYellow")
-            ||
-            (colorOfMinion == Color.blue && collision.collider.name == "GoalBlue")
-            ||
-            (colorOfMinion == Color.green && collision.collider.name == "GoalGreen"))
+        if ((colorOfMinion == Color.red && other.name == "GoalRed")
+           ||
+           (colorOfMinion == Color.yellow && other.name == "GoalYellow")
+           ||
+           (colorOfMinion == Color.blue && other.name == "GoalBlue")
+           ||
+           (colorOfMinion == Color.green && other.name == "GoalGreen"))
         {
-            nav.SetDestination(startPosition);
+
+            nav.isStopped = true;
+            //Debug.Log("pene");
         }
-
-
-
     }
 
     // Update is called once per frame
