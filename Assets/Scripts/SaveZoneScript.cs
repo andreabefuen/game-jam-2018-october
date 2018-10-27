@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class SaveZoneScript : MonoBehaviour
 {
-    public GameObject GameManagerObject;
     GameManager GMScript;
 
     List<GameObject> EnemiesSaved = new List<GameObject>();
     // Start is called before the first frame update
     private void Start()
     {
-        GMScript = GameManagerObject.GetComponent<GameManager>();
+        GMScript = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
