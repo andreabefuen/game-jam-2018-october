@@ -68,10 +68,17 @@ public class MinionsMovements : MonoBehaviour
            ||
            (colorOfMinion == PlayerMovement.Colores.Blue && other.name == "GoalBlue")
            ||
-           (colorOfMinion == PlayerMovement.Colores.Green && other.name == "GoalGreen"))
+           (colorOfMinion == PlayerMovement.Colores.Green && other.name == "GoalGreen")
+           ||
+           (colorOfMinion == PlayerMovement.Colores.White && other.name == "GoalWhite")
+           )
         {
-            anim.SetBool("isRunning", false);
-            nav.isStopped = true;
+
+            Invoke("StopMinion", 2f);
+           
+           
+            
+           
             //Debug.Log("pene");
         }
 
@@ -81,6 +88,12 @@ public class MinionsMovements : MonoBehaviour
         }
 
 
+    }
+
+    void StopMinion()
+    {
+        anim.SetBool("isRunning", false);
+        nav.isStopped = true;
     }
 
     // Update is called once per frame
