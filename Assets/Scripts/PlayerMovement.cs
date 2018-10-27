@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
     Light theLight;
     CapsuleCollider col;
     Rigidbody rBody;
-    float speed = 10.0f;
+    public float baseSpeed;
+    public float speed = 15f;
     Vector3 velocity;
     float sizer;
     // Start is called before the first frame update
@@ -24,12 +25,13 @@ public class PlayerMovement : MonoBehaviour
     {
         velocity.x = Input.GetAxis("Horizontal");
         velocity.y = Input.GetAxis("Vertical");
-        rBody.velocity = transform.TransformDirection(velocity * speed);
+        rBody.velocity = transform.TransformDirection(velocity).normalized * speed;
         sizer = Input.GetAxis("SetSize");
         if (theLight.spotAngle < 75 && sizer > 0 || theLight.spotAngle > 20 && sizer < 0)
         {
             theLight.spotAngle += sizer;
             col.radius += sizer * 0.16f;
+            speed = baseSpeed / (theLight.spotAngle / 20);
         }
     }
 }
