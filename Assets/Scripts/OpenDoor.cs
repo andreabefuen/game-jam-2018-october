@@ -25,6 +25,7 @@ public class OpenDoor : MonoBehaviour
         {
             UpdateDoor();
         }
+        
     }
     void UpdateDoor()
     {
@@ -39,6 +40,10 @@ public class OpenDoor : MonoBehaviour
         gameObject.transform.position = newPosition;
         if (time >= 1)
         {
+            if (GMScript.doorOpenPercentage == 100)
+            {
+                Destroy(this.gameObject);
+            }
             OpenPerce = GMScript.doorOpenPercentage;
             time = 0;
         }

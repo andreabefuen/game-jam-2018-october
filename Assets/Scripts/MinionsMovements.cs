@@ -22,6 +22,7 @@ public class MinionsMovements : MonoBehaviour
     Vector3 nextPosition;
 
     public bool dancing;
+    public bool activate = true;
 
     // Start is called before the first frame update
     void Start()
@@ -53,11 +54,9 @@ public class MinionsMovements : MonoBehaviour
         return nextPosition;
     }
 
-    void RunAway()
+    public void RunAway()
     {
-
-
-
+        nav.SetDestination(startPosition);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -73,15 +72,22 @@ public class MinionsMovements : MonoBehaviour
            (colorOfMinion == PlayerMovement.Colores.White && other.name == "GoalWhite")
            )
         {
-
-            Invoke("StopMinion", 2f);
-           
-           
-            
-           
+            other.transform.gameObject.GetComponent<SaveZoneScript>().EnemieEnterSave(this.gameObject);
+            Invoke("StopMinion", 2f);  
             //Debug.Log("pene");
+        }else if ((colorOfMinion == PlayerMovement.Colores.Red && other.name != "GoalRed" && other.gameObject.tag == "ColorZone")
+           ||
+           (colorOfMinion == PlayerMovement.Colores.Yellow && other.name != "GoalYellow" && other.gameObject.tag == "ColorZone")
+           ||
+           (colorOfMinion == PlayerMovement.Colores.Blue && other.name != "GoalBlue" && other.gameObject.tag == "ColorZone")
+           ||
+           (colorOfMinion == PlayerMovement.Colores.Green && other.name != "GoalGreen" && other.gameObject.tag == "ColorZone")
+           ||
+           (colorOfMinion == PlayerMovement.Colores.White && other.name != "GoalWhite" && other.gameObject.tag == "ColorZone")
+           )
+        {
+            other.transform.gameObject.GetComponent<SaveZoneScript>().EnemieEscape();
         }
-
         else
         {
             nav.SetDestination(startPosition);
@@ -115,7 +121,7 @@ public class MinionsMovements : MonoBehaviour
                 if(!dancing) nav.SetDestination(newPos);
             }
 
-            else if (nav.remainingDistance == 0)
+            else if (nav.remainingDistance == 0 && activate)
             {
 
                 if(!dancing) nav.SetDestination(GetRandomTarget());
