@@ -14,13 +14,13 @@ public class SaveZoneScript : MonoBehaviour
         GameManager.instance.OnEnemySaved();
     }
     public void EnemieEscape()
-    {
+    {/*
         GameManager.instance.numberOfEnemiesSaved -= EnemiesSaved.Count;
         foreach (GameObject Enemy in EnemiesSaved)
         {
         }
         EnemiesSaved.Clear();
-        Debug.Log(EnemiesSaved.Count);
-
+        //Debug.Log(EnemiesSaved.Count);
+        */
     }
 }
