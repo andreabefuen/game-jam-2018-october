@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
     [Header("Timer")]
     public float levelSeconds;
     private bool timerActivated = false;
-
     
     void LoadLevel(int levelNumber) { currentLevelPrefab = Instantiate(levels[levelNumber], Vector3.zero, Quaternion.identity); }
 
