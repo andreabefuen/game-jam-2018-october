@@ -74,10 +74,9 @@ public class MinionsMovements : MonoBehaviour
 
         //nav.SetDestination(target.position);
 
-        if(colorOfMinion == player.GetComponent<PlayerMovement>().colorNow)
-        {
+       
             float dist = Vector3.Distance(transform.position, player.transform.position);
-            if (dist < enemyDistanceRun)
+            if (dist < enemyDistanceRun && colorOfMinion == player.GetComponent<PlayerMovement>().colorNow)
             {
                 Vector3 dirToPlayer = transform.position - player.transform.position;
 
@@ -94,7 +93,7 @@ public class MinionsMovements : MonoBehaviour
                 nav.SetDestination(GetRandomTarget());
 
             }
-        }
+        
 
     }
 }
