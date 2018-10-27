@@ -46,6 +46,8 @@ public class MinionsMovements : MonoBehaviour
 
         if (dancing)
         {
+            Debug.Log("A bailar");
+            anim.SetTrigger("isDancing");
            // anim.SetBool("isRunning", false);
            // anim.SetBool("isWalking", false);
            // anim.SetBool("isDancing", true);
@@ -80,7 +82,7 @@ public class MinionsMovements : MonoBehaviour
 
                 Invoke("StopMinion", 0.5f);
 
-
+                other.GetComponent<SaveZoneScript>().EnemieEnterSave(gameObject);
 
 
                 //Debug.Log("pene");
