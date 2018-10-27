@@ -63,11 +63,12 @@ public class MinionsMovements : MonoBehaviour
             //Debug.Log("pene");
         }
 
-       //if(other.tag == "Player")
-       //{
-       //    Debug.Log("me voy");
-       //    RunAway();
-       //}
+        else
+        {
+            nav.SetDestination(startPosition);
+        }
+
+
     }
 
     // Update is called once per frame
