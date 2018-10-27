@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.gameObject.tag == "ColorZone") {
             //if(other.gameObject.GetComponent<Renderer>().material.color == colorNow)
             switch(other.gameObject.name){
@@ -115,6 +116,10 @@ public class PlayerMovement : MonoBehaviour
                     }
                     break;
             }
+        }
+        if (other.gameObject.tag == "Exit")
+        {
+            GameManager.instance.Invoke("OnLevelCompleted", 0.5f);
         }
     }
 }
