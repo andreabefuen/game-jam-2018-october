@@ -330,6 +330,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelBase
       objectReference: {fileID: 0}
+    - target: {fileID: 467272453, guid: 000d615670b710047a4e634a57c01bea, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 208079123, guid: 000d615670b710047a4e634a57c01bea, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 530273357, guid: 000d615670b710047a4e634a57c01bea, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017124885, guid: 000d615670b710047a4e634a57c01bea, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 530273355, guid: 000d615670b710047a4e634a57c01bea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017124883, guid: 000d615670b710047a4e634a57c01bea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 208079121, guid: 000d615670b710047a4e634a57c01bea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 467272451, guid: 000d615670b710047a4e634a57c01bea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 467272453, guid: 000d615670b710047a4e634a57c01bea, type: 3}
+      propertyPath: m_Radius
+      value: 0.5917331
+      objectReference: {fileID: 0}
+    - target: {fileID: 467272453, guid: 000d615670b710047a4e634a57c01bea, type: 3}
+      propertyPath: m_Center.y
+      value: 0.5723413
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 000d615670b710047a4e634a57c01bea, type: 3}
 --- !u!1001 &6129321045567782265
@@ -414,6 +454,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.6167
       objectReference: {fileID: 0}
+    - target: {fileID: 4607910841438351032, guid: cc2893fafef2ceb409c63060e2c89f3b,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc2893fafef2ceb409c63060e2c89f3b, type: 3}
 --- !u!1 &8499483421716062458 stripped
@@ -436,7 +481,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!195 &8499483421716062460
 NavMeshAgent:
@@ -472,4 +517,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455e78d85613c7043ac923a3740e62ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorOfMinion: {r: 1, g: 1, b: 0, a: 0}
   speed: 20
