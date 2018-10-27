@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [Header("Lista de prefabs de niveles")]
-    public GameObject[] levelPrefabs;
+    public GameObject[] levels;
     GameObject currentLevelPrefab;
 
     #region Variable references
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     
     void LoadLevel(int levelNumber)
     {
-        currentLevelPrefab = Instantiate(levelPrefabs[levelNumber], Vector3.zero, Quaternion.identity);
+        currentLevelPrefab = Instantiate(levels[levelNumber], Vector3.zero, Quaternion.identity);
     }
 
     void Restart()
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
     {
         timerActivated = false;
         levelNumber++;
-        SetupLevel(levelNumber, levelPrefabs[levelNumber].GetComponent<Level>().levelSeconds, levelPrefabs[levelNumber].GetComponent<Level>().numberOfEnemies);
+        SetupLevel(levelNumber, levels[levelNumber].GetComponent<Level>().levelSeconds, levels[levelNumber].GetComponent<Level>().numberOfEnemies);
         UIController.Invoke("HideLevelComplete", 1f);
         Invoke("StartTimer", 1.5f);
     }
@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        SetupLevel(levelNumber, levelPrefabs[levelNumber].GetComponent<Level>().levelSeconds, levelPrefabs[levelNumber].GetComponent<Level>().numberOfEnemies);
+        SetupLevel(levelNumber, levels[levelNumber].GetComponent<Level>().levelSeconds, levels[levelNumber].GetComponent<Level>().numberOfEnemies);
         StartTimer();
     }
 
