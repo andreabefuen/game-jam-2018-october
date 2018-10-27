@@ -21,6 +21,8 @@ public class MinionsMovements : MonoBehaviour
     public float nextPosDistance;
     Vector3 nextPosition;
 
+    public bool dancing;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,12 @@ public class MinionsMovements : MonoBehaviour
         startPosition = this.transform.position;
 
         anim.SetBool("isRunning", true);
+
+        if (dancing)
+        {
+            anim.SetBool("isRunning", false);
+            anim.SetBool("isDancing", true);
+        }
 
     }
 
@@ -91,13 +99,13 @@ public class MinionsMovements : MonoBehaviour
 
                 // nav.acceleration = 5f;
 
-                nav.SetDestination(newPos);
+                if(!dancing) nav.SetDestination(newPos);
             }
 
             else if (nav.remainingDistance == 0)
             {
 
-                nav.SetDestination(GetRandomTarget());
+                if(!dancing) nav.SetDestination(GetRandomTarget());
 
             }
         
