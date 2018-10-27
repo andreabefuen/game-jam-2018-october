@@ -82,7 +82,7 @@ public class MinionsMovements : MonoBehaviour
 
                 Invoke("StopMinion", 0.5f);
 
-
+                other.GetComponent<SaveZoneScript>().EnemieEnterSave(gameObject);
 
 
                 //Debug.Log("pene");
