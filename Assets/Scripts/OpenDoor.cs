@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-    GameManager GMScript;
     float OpenPerce, BaseScale, BasePosition, time, initPosition, initScale;
 
     // Start is called before the first frame update
     void Start()
     {
-        GMScript = GameObject.Find("GameManager").GetComponent<GameManager>();
         OpenPerce = 0;
         BaseScale = 1.25f;
         BasePosition = 0.625f;
@@ -20,7 +18,7 @@ public class OpenDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(OpenPerce != GMScript.doorOpenPercentage)
+        if(OpenPerce != GameManager.instance..doorOpenPercentage)
         {
             UpdateDoor();
         }
@@ -31,19 +29,19 @@ public class OpenDoor : MonoBehaviour
         time += Time.deltaTime;
 
         Vector3 Scale = transform.localScale;
-        Scale.y = Mathf.Lerp(transform.localScale.y, BaseScale - (BaseScale * GMScript.doorOpenPercentage) / 100f, time);
+        Scale.y = Mathf.Lerp(transform.localScale.y, BaseScale - (BaseScale * GameManager.instance..doorOpenPercentage) / 100f, time);
         
         transform.localScale = Scale;
         Vector3 newPosition = transform.position;
-        newPosition.y = Mathf.Lerp(transform.position.y, BasePosition + (((BaseScale/2) * GMScript.doorOpenPercentage) / 100f), time);
+        newPosition.y = Mathf.Lerp(transform.position.y, BasePosition + (((BaseScale/2) * GameManager.instance..doorOpenPercentage) / 100f), time);
         gameObject.transform.position = newPosition;
         if (time >= 1)
         {
-            if (GMScript.doorOpenPercentage == 100)
+            if (GameManager.instance..doorOpenPercentage == 100)
             {
                 Destroy(this.gameObject);
             }
-            OpenPerce = GMScript.doorOpenPercentage;
+            OpenPerce = GameManager.instance..doorOpenPercentage;
             time = 0;
         }
     }
