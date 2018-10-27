@@ -36,6 +36,12 @@ public class GameManager : MonoBehaviour
     public float levelSeconds;
     private bool timerActivated = false;
 
+    public static GameManager instance;
+    void Awake()
+    {
+        instance = this;
+    }
+
     
     void LoadLevel(int levelNumber) { currentLevelPrefab = Instantiate(levels[levelNumber], Vector3.zero, Quaternion.identity); }
 
