@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 208079123}
   m_Layer: 0
   m_Name: GoalGreen
-  m_TagString: Untagged
+  m_TagString: ColorZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 467272453}
   m_Layer: 0
   m_Name: GoalYellow
-  m_TagString: Untagged
+  m_TagString: ColorZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 530273357}
   m_Layer: 0
   m_Name: GoalBlue
-  m_TagString: Untagged
+  m_TagString: ColorZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -378,7 +378,7 @@ GameObject:
   - component: {fileID: 2017124885}
   m_Layer: 0
   m_Name: GoalRed
-  m_TagString: Untagged
+  m_TagString: ColorZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
