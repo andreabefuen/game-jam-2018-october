@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+
+    /*  Funciones públicas del GameManager
+     * 
+     *  Función más importante: SetupLevel()
+     *      Prepara el GameManager con el número del nivel, el timer, el número de enemigos...
+     *      Carga el prefab del nivel y empieza el juego.
+     * 
+     * 
+     */
+
+
     [Header("Lista de prefabs de niveles")]
     public GameObject[] levels;
     GameObject currentLevelPrefab;
@@ -25,10 +37,7 @@ public class GameManager : MonoBehaviour
     private bool timerActivated = false;
 
     
-    void LoadLevel(int levelNumber)
-    {
-        currentLevelPrefab = Instantiate(levels[levelNumber], Vector3.zero, Quaternion.identity);
-    }
+    void LoadLevel(int levelNumber) { currentLevelPrefab = Instantiate(levels[levelNumber], Vector3.zero, Quaternion.identity); }
 
     void Restart()
     {
