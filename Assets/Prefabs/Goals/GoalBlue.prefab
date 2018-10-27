@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8033793542676119395}
   m_Layer: 0
   m_Name: GoalBlue
-  m_TagString: Untagged
+  m_TagString: ColorZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
