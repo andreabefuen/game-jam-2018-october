@@ -23,6 +23,9 @@ public class MinionsMovements : MonoBehaviour
 
     public bool dancing;
 
+    private bool insideHouse = false;
+
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -35,13 +38,16 @@ public class MinionsMovements : MonoBehaviour
         //nav.SetDestination(GetRandomTarget());
 
         startPosition = this.transform.position;
-
-        anim.SetBool("isRunning", true);
+        //anim.SetTrigger("isWalking");
+       // anim.SetBool("isWalking", true);
+       // anim.SetBool("isRunning", false);
+       // anim.SetBool("isDancing", false);
 
         if (dancing)
         {
-            anim.SetBool("isRunning", false);
-            anim.SetBool("isDancing", true);
+           // anim.SetBool("isRunning", false);
+           // anim.SetBool("isWalking", false);
+           // anim.SetBool("isDancing", true);
         }
 
     }
@@ -53,47 +59,75 @@ public class MinionsMovements : MonoBehaviour
         return nextPosition;
     }
 
-    void RunAway()
-    {
-
-
-
-    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((colorOfMinion == PlayerMovement.Colores.Red && other.name == "GoalRed")
-           ||
-           (colorOfMinion == PlayerMovement.Colores.Yellow && other.name == "GoalYellow")
-           ||
-           (colorOfMinion == PlayerMovement.Colores.Blue && other.name == "GoalBlue")
-           ||
-           (colorOfMinion == PlayerMovement.Colores.Green && other.name == "GoalGreen")
-           ||
-           (colorOfMinion == PlayerMovement.Colores.White && other.name == "GoalWhite")
-           )
+        if (!insideHouse)
         {
+            if ((colorOfMinion == PlayerMovement.Colores.Red && other.name == "GoalRed")
+          ||
+          (colorOfMinion == PlayerMovement.Colores.Yellow && other.name == "GoalYellow")
+          ||
+          (colorOfMinion == PlayerMovement.Colores.Blue && other.name == "GoalBlue")
+          ||
+          (colorOfMinion == PlayerMovement.Colores.Green && other.name == "GoalGreen")
+          ||
+          (colorOfMinion == PlayerMovement.Colores.White && other.name == "GoalWhite")
+          )
+            {
 
-            Invoke("StopMinion", 2f);
-           
-           
-            
-           
-            //Debug.Log("pene");
-        }
+                Invoke("StopMinion", 0.5f);
 
-        else
-        {
-            nav.SetDestination(startPosition);
+
+
+
+                //Debug.Log("pene");
+            }
+
+            else if ((colorOfMinion == PlayerMovement.Colores.Red && other.name != "GoalRed")
+               ||
+               (colorOfMinion == PlayerMovement.Colores.Yellow && other.name != "GoalYellow")
+               ||
+               (colorOfMinion == PlayerMovement.Colores.Blue && other.name != "GoalBlue")
+               ||
+               (colorOfMinion == PlayerMovement.Colores.Green && other.name != "GoalGreen")
+               ||
+               (colorOfMinion == PlayerMovement.Colores.White && other.name != "GoalWhite")
+               )
+            {
+                nav.SetDestination(startPosition);
+                anim.SetTrigger("isWalking");
+                //anim.SetBool("isWalking", true);
+                //anim.SetBool("isRunning", false);
+                //anim.SetBool("isDancing", false);
+                nav.speed = speed;
+            }
+
+            else
+            {
+                return;
+            }
         }
+        
+       
 
 
     }
 
     void StopMinion()
     {
-        anim.SetBool("isRunning", false);
-        nav.isStopped = true;
+
+        insideHouse = true;
+       //anim.SetBool("isRunning", false);
+       //anim.SetBool("isWalking", false);
+       //anim.SetBool("isDancing", false);
+
+        nav.speed = 0;
+        //anim.Play("Idle");
+        anim.SetTrigger("isIdle");
+        nav.enabled = false;
+
+        //nav.isStopped = true;
     }
 
     // Update is called once per frame
@@ -102,8 +136,12 @@ public class MinionsMovements : MonoBehaviour
 
         //nav.SetDestination(target.position);
 
-       
+        if (!insideHouse && nav.enabled == true)
+        {
+            
             float dist = Vector3.Distance(transform.position, player.transform.position);
+
+            //Si la distancia entre el player y el minion es menor que un cierto parámetro y además el color del haz de luz es igual al del minion
             if (dist < enemyDistanceRun && colorOfMinion == player.GetComponent<PlayerMovement>().colorNow)
             {
                 Vector3 dirToPlayer = transform.position - player.transform.position;
@@ -112,16 +150,44 @@ public class MinionsMovements : MonoBehaviour
 
                 // nav.acceleration = 5f;
 
-                if(!dancing) nav.SetDestination(newPos);
+                //Si no esta bailando entonces CORRE
+                if (!dancing)
+                {
+
+                    anim.SetTrigger("isRunning");
+                   //anim.SetBool("isRunning", true);
+                   //anim.SetBool("isWalking", false);
+                   //anim.SetBool("isDancing", false);
+                    nav.speed *= 2;
+                    print("Salida 1");
+                    nav.SetDestination(newPos);
+                }
             }
 
             else if (nav.remainingDistance == 0)
             {
 
-                if(!dancing) nav.SetDestination(GetRandomTarget());
+                if (!dancing)
+                {
+                    //anim.SetBool("isRunning", false);
+                    //anim.SetBool("isWalking", true);
+                    //anim.SetBool("isDancing", false);
+                    anim.SetTrigger("isWalking");
+                    print("Salida 2");
+                    nav.speed /= 2;
+                    nav.SetDestination(GetRandomTarget());
+                }
 
             }
-        
 
+        }
+
+        if (insideHouse)
+        {
+            StopMinion();
+            
+            anim.SetTrigger("isIdle");
+            //anim.Play("Idle");
+        }
     }
 }
