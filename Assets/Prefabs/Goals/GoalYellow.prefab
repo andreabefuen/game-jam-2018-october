@@ -12,7 +12,11 @@ GameObject:
   - component: {fileID: 8093554272481651439}
   - component: {fileID: 8093554272481651436}
   - component: {fileID: 8093554272481651437}
+<<<<<<< HEAD
   - component: {fileID: 3263638272639714843}
+=======
+  - component: {fileID: 5421514754052197963}
+>>>>>>> ac0a9e70f0cc91372cf1b349be31be6acaa3634a
   m_Layer: 0
   m_Name: GoalYellow
   m_TagString: ColorZone
@@ -92,7 +96,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!114 &3263638272639714843
+=======
+--- !u!114 &5421514754052197963
+>>>>>>> ac0a9e70f0cc91372cf1b349be31be6acaa3634a
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,4 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e977a997d5fc2034b87a162ee53f3729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   GameManagerObject: {fileID: 0}
+=======
+>>>>>>> ac0a9e70f0cc91372cf1b349be31be6acaa3634a
