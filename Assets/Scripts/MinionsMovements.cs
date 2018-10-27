@@ -7,11 +7,16 @@ public class MinionsMovements : MonoBehaviour
 {
     NavMeshAgent nav;
     public Color colorOfMinion;
+    public Transform player;
     //public Transform target;
     public float speed;
 
+    public float enemyDistanceRun = 20.0f;
+
     Vector3 startPosition;
-    
+    Transform startTransform;
+
+
     
 
     // Start is called before the first frame update
@@ -21,7 +26,7 @@ public class MinionsMovements : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         nav.speed = speed;
 
-        nav.SetDestination(GetRandomTarget());
+        //nav.SetDestination(GetRandomTarget());
 
         startPosition = this.transform.position;
 
@@ -41,7 +46,10 @@ public class MinionsMovements : MonoBehaviour
         return position;
 
 
+    }
 
+    void RunAway()
+    {
 
 
 
@@ -61,6 +69,12 @@ public class MinionsMovements : MonoBehaviour
             nav.isStopped = true;
             //Debug.Log("pene");
         }
+
+       //if(other.tag == "Player")
+       //{
+       //    Debug.Log("me voy");
+       //    RunAway();
+       //}
     }
 
     // Update is called once per frame
@@ -69,23 +83,31 @@ public class MinionsMovements : MonoBehaviour
 
         //nav.SetDestination(target.position);
 
-        
-        
+        float dist = Vector3.Distance(transform.position, player.transform.position);
 
-        if (nav.remainingDistance == 0)
+       // Debug.Log(dist);
+
+        if (dist < enemyDistanceRun)
+        {
+            //Debug.Log("me voy");
+
+            Vector3 dirToPlayer = transform.position - player.transform.position;
+
+            Vector3 newPos = transform.position + dirToPlayer;
+
+           // nav.acceleration = 5f;
+
+            nav.SetDestination(newPos);
+        }
+
+       else if (nav.remainingDistance == 0)
         {
 
-            
-           
-           
-             nav.SetDestination(GetRandomTarget());
-            
+                nav.SetDestination(GetRandomTarget());
 
-
-            
-
-      
         }
+        
+       
         
         
     }
