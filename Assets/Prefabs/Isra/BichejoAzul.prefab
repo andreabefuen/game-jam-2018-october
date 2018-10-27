@@ -171,10 +171,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 4112442459010779644}
     m_Modifications:
     - target: {fileID: 400066, guid: ec3acc846cf2a134599bc0e538b93c68, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400066, guid: ec3acc846cf2a134599bc0e538b93c68, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.62
       objectReference: {fileID: 0}
@@ -182,49 +178,13 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.59
       objectReference: {fileID: 0}
-    - target: {fileID: 400066, guid: ec3acc846cf2a134599bc0e538b93c68, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400066, guid: ec3acc846cf2a134599bc0e538b93c68, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400066, guid: ec3acc846cf2a134599bc0e538b93c68, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400066, guid: ec3acc846cf2a134599bc0e538b93c68, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400066, guid: ec3acc846cf2a134599bc0e538b93c68, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400066, guid: ec3acc846cf2a134599bc0e538b93c68, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400066, guid: ec3acc846cf2a134599bc0e538b93c68, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400066, guid: ec3acc846cf2a134599bc0e538b93c68, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100066, guid: ec3acc846cf2a134599bc0e538b93c68, type: 3}
-      propertyPath: m_Name
-      value: monigote@Goofy Running
-      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: ec3acc846cf2a134599bc0e538b93c68, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5a620fce9ea90ba448ec96757454f589, type: 2}
     - target: {fileID: 13700000, guid: ec3acc846cf2a134599bc0e538b93c68, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b25fc9e8322a1ba459eeed3ab6e64732, type: 2}
-    - target: {fileID: 9500000, guid: ec3acc846cf2a134599bc0e538b93c68, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 02a28e05415255b4abfeffd0df76a1f8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec3acc846cf2a134599bc0e538b93c68, type: 3}
