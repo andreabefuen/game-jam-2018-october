@@ -104,5 +104,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e670808fe89378498cdc2c084853d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfEnemies: 4
-  levelSeconds: 20
+  numberOfEnemies: 1
+  levelSeconds: 30

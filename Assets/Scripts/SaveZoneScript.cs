@@ -17,6 +17,7 @@ public class SaveZoneScript : MonoBehaviour
     // Update is called once per frame
     public void EnemieEnterSave(GameObject Enemy) {
         EnemiesSaved.Add(Enemy);
+        Debug.Log(EnemiesSaved.Count);
         GMScript.OnEnemySaved();
     }
     public void EnemieEscape()
@@ -27,5 +28,7 @@ public class SaveZoneScript : MonoBehaviour
           //  Enemy.GetComponent<MinionsMovements>().RunAway();
         }
         EnemiesSaved.Clear();
+        Debug.Log(EnemiesSaved.Count);
+
     }
 }
