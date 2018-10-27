@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ColorZone
   - Enemy
+  - Exit
   layers:
   - Default
   - TransparentFX
