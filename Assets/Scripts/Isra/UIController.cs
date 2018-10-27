@@ -8,6 +8,8 @@ public class UIController : MonoBehaviour
 
     public Slider timerSlider;
     public Text informationText;
+    public Text levelText;
+    public Animation levelCompleteAnimation;
     bool showingInformationText;
 
     public static UIController instance;
@@ -41,6 +43,22 @@ public class UIController : MonoBehaviour
             informationText.GetComponent<Animation>().Play("ShowInformationText");
             Invoke("HideInformationText", howLongFor);
         } 
+    }
+
+    public void ShowLevelComplete()
+    {
+        levelCompleteAnimation.Play("ShowLevelComplete");
+    }
+
+    public void HideLevelComplete()
+    {
+        timerSlider.targetGraphic.color = Color.green;
+        levelCompleteAnimation.Play("HideLevelComplete");
+    }
+
+    public void UpdateLevelText(int levelNumber)
+    {
+        levelText.text = "Level " + (levelNumber + 1);
     }
 
 
