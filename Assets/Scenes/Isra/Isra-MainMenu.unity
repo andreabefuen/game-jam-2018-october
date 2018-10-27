@@ -1945,5 +1945,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenuUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2672631377940574658, guid: c956c6b14bda9a34cb50cf28a5eb666c,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c956c6b14bda9a34cb50cf28a5eb666c, type: 3}

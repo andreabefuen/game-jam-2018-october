@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 4038458060585296301}
   m_Layer: 0
   m_Name: BichejoAzul
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,8 +125,6 @@ MonoBehaviour:
   anim: {fileID: 4038458060926996835}
   enemyDistanceRun: 20
   nextPosDistance: 50
-  dancing: 0
-  activate: 1
 --- !u!54 &4038458060585296302
 Rigidbody:
   m_ObjectHideFlags: 0

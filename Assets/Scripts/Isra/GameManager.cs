@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         numberOfEnemiesSaved = 0;
     }
 
-    public void SetupLevel(int levelNumber, float levelSeconds, float numberOfTotalEnemies)
+    public void SetupLevel(int levelNumber, float levelSeconds, int numberOfTotalEnemies)
     {
         // Restart the variables
         Restart();

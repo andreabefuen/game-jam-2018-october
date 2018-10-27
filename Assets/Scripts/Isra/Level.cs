@@ -2,12 +2,9 @@
 
 public class Level : MonoBehaviour
 {
-    public float numberOfEnemies;
+    public int numberOfEnemies;
     public int levelSeconds;
 
     // Descomenta esto cuando pongas los enemigos dentro del nivel
-    void Start()
-    {
-        numberOfEnemies = GameManager.instance.numberOfTotalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
-    }
+    //void Start() { numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length; }
 }

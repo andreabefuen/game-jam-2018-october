@@ -13,10 +13,13 @@ GameObject:
   - component: {fileID: 8093554272481651436}
   - component: {fileID: 8093554272481651437}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 2661564964475197927}
 =======
   - component: {fileID: 4402802356669967016}
 >>>>>>> ac0a9e70f0cc91372cf1b349be31be6acaa3634a
+=======
+>>>>>>> parent of 2559f5d... a TOMAR POR CULO EL AXEL
   m_Layer: 0
   m_Name: GoalBlue
   m_TagString: ColorZone
@@ -97,6 +100,7 @@ BoxCollider:
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &2661564964475197927
 =======
 --- !u!114 &4402802356669967016
@@ -116,3 +120,5 @@ MonoBehaviour:
   GameManagerObject: {fileID: 0}
 =======
 >>>>>>> ac0a9e70f0cc91372cf1b349be31be6acaa3634a
+=======
+>>>>>>> parent of 2559f5d... a TOMAR POR CULO EL AXEL
