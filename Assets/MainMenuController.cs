@@ -8,10 +8,17 @@ public class MainMenuController : MonoBehaviour
     public GameObject highlighter;
     public int menuIndex = 0;
     bool playedMenuSFX = false;
+
+    bool canInteract = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Invoke("AllowInteraction", 2f); 
+    }
+
+    void AllowInteraction()
+    {
+        canInteract = true;
     }
 
     void RestartPlayedMenuSFX()
@@ -70,6 +77,6 @@ public class MainMenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HandleInput(); 
+        if(canInteract) HandleInput(); 
     }
 }
