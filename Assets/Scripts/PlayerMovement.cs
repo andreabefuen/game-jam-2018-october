@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 15f;
     Vector3 velocity;
     float sizer, time;
-    enum Colores {Red, Green, Blue, Yellow, White }
-    Colores colorNow;
+    public enum Colores {Red, Green, Blue, Yellow, White }
+    public Colores colorNow;
     Color colorStart;
     Color newColor;
     bool changeColor;
