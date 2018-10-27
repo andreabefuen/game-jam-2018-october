@@ -42,7 +42,7 @@ public class MainMenuController : MonoBehaviour
             MoveHighlighter();
         }
 
-        if(menuIndex == 0 && Input.GetKeyDown(KeyCode.Space))
+        if(menuIndex == 0 && (Input.GetKeyDown(KeyCode.Space) || Input.GetAxis("Submit") > 0))
         {
             SceneManager.LoadScene(1);
         }
