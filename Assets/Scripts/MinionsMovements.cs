@@ -16,8 +16,8 @@ public class MinionsMovements : MonoBehaviour
     Vector3 startPosition;
     Transform startTransform;
 
-
-    
+    public float nextPosDistance;
+    Vector3 nextPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -36,15 +36,8 @@ public class MinionsMovements : MonoBehaviour
     Vector3 GetRandomTarget()
     {
 
-        Vector3 position = new Vector3(Random.Range(-20.0f, 20.0f), 0, Random.Range(-20.0f, 20.0f));
-
-        Vector3 distance = transform.position - position;
-        while (distance.sqrMagnitude < 10)
-        {
-            position = GetRandomTarget();
-        }
-        return position;
-
+        nextPosition = transform.position + new Vector3(Random.Range(-nextPosDistance, nextPosDistance), 0, Random.Range(-nextPosDistance, nextPosDistance));
+        return nextPosition;
 
     }
 
