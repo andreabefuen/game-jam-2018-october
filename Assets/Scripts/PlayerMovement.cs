@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 15f;
     Vector3 velocity;
     float sizer, time;
-    enum Colores {Red, Green, blue, Yellow, White }
-    Colores colorNow;
+    public enum Colores {Red, Green, Blue, Yellow, White }
+    public Colores colorNow;
     Color colorStart;
     Color newColor;
     bool changeColor;
@@ -63,17 +63,53 @@ public class PlayerMovement : MonoBehaviour
                         colorStart = theLight.color;
                         newColor = Color.red;
                         changeColor = true;
+                        colorNow = Colores.Red;
                         Debug.Log("Entro");
                     }
                     break;
                 case "GoalYellow":
-
+                    if (colorNow != Colores.Yellow)
+                    {
+                        time = 0;
+                        colorStart = theLight.color;
+                        newColor = Color.yellow;
+                        changeColor = true;
+                        colorNow = Colores.Yellow;
+                        Debug.Log("Entro");
+                    }
                     break;
                 case "GoalGreen":
-
+                    if (colorNow != Colores.Green)
+                    {
+                        time = 0;
+                        colorStart = theLight.color;
+                        newColor = Color.green;
+                        changeColor = true;
+                        colorNow = Colores.Green;
+                        Debug.Log("Entro");
+                    }
                     break;
                 case "GoalBlue":
-
+                    if (colorNow != Colores.Blue)
+                    {
+                        time = 0;
+                        colorStart = theLight.color;
+                        newColor = Color.blue;
+                        changeColor = true;
+                        colorNow = Colores.Blue;
+                        Debug.Log("Entro");
+                    }
+                    break;
+                case "GoalWhite":
+                    if (colorNow != Colores.White)
+                    {
+                        time = 0;
+                        colorStart = theLight.color;
+                        newColor = Color.white;
+                        changeColor = true;
+                        colorNow = Colores.White;
+                        Debug.Log("Entro");
+                    }
                     break;
             }
         }

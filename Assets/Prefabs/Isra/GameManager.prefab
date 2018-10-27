@@ -146,8 +146,8 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 2d957f231a0ea5941ab655617b8fe498, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 2d957f231a0ea5941ab655617b8fe498, type: 2}
-  - {fileID: 7400000, guid: 6cc43eb451e16f84581b92b435241a87, type: 2}
+  - {fileID: 7400000, guid: 1ca817b535cbaa54e9451a36582c4c71, type: 2}
+  - {fileID: 7400000, guid: 44494d815b14ff2488d99b72ad344bb3, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -228,12 +228,12 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -282,7 +282,6 @@ GameObject:
   - component: {fileID: 6058059271379971052}
   - component: {fileID: 1922375119299604201}
   - component: {fileID: 2220948679329181491}
-  - component: {fileID: 419676783779904452}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -338,12 +337,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 64
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 3aa0b0efaa2be3040b31d422e4b5b3a1, type: 3}
+    m_FontSize: 128
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 6
-    m_MaxSize: 64
+    m_MinSize: 1
+    m_MaxSize: 128
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -351,21 +350,6 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Level complete!
---- !u!114 &419676783779904452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3357644711651405719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0.20868005, b: 0.13679248, a: 0.38431373}
-  m_EffectDistance: {x: 2, y: -2}
-  m_UseGraphicAlpha: 1
 --- !u!1 &3518328587362421899
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +421,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 849, y: 434}
+  m_SizeDelta: {x: 1820.8856, y: 980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7966516869341539890
 CanvasRenderer:
@@ -510,7 +494,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -10}
+  m_AnchoredPosition: {x: 0, y: -20}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &7954588645436756922
@@ -542,12 +526,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 28
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 3aa0b0efaa2be3040b31d422e4b5b3a1, type: 3}
+    m_FontSize: 48
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -834,9 +818,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07d2a664b25be64ea0fbe16272972f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelPrefabs:
+  levels:
   - {fileID: 5522054228533620874, guid: 3bec46e0dcef2ca43a9921df6b96b5b4, type: 3}
   - {fileID: 5522054228533620874, guid: fd3adb5a7470b654988661c7bfaa2882, type: 3}
+  - {fileID: 5522054228533620874, guid: 97a5c4a105cc4c142b57f19b106b7a83, type: 3}
+  - {fileID: 5522054228533620874, guid: 8b68e0d6c33b5c34fac0d61b2c61cdaf, type: 3}
   UIController: {fileID: 2910807800017251346}
   levelNumber: 0
   numberOfTotalEnemies: 0

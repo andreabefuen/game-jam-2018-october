@@ -6,13 +6,18 @@ using UnityEngine.AI;
 public class MinionsMovements : MonoBehaviour
 {
     NavMeshAgent nav;
-    public Color colorOfMinion;
+    public PlayerMovement.Colores colorOfMinion;
+    public Transform player;
     //public Transform target;
     public float speed;
 
+    public float enemyDistanceRun = 20.0f;
+
     Vector3 startPosition;
-    
-    
+    Transform startTransform;
+
+    public float nextPosDistance;
+    Vector3 nextPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -21,27 +26,20 @@ public class MinionsMovements : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         nav.speed = speed;
 
-        nav.SetDestination(GetRandomTarget());
+        //nav.SetDestination(GetRandomTarget());
 
         startPosition = this.transform.position;
-
-        colorOfMinion = Color.yellow;
     }
 
     Vector3 GetRandomTarget()
     {
 
-        Vector3 position = new Vector3(Random.Range(-20.0f, 20.0f), 0, Random.Range(-20.0f, 20.0f));
+        nextPosition = transform.position + new Vector3(Random.Range(-nextPosDistance, nextPosDistance), 0, Random.Range(-nextPosDistance, nextPosDistance));
+        return nextPosition;
+    }
 
-        Vector3 distance = transform.position - position;
-        while (distance.sqrMagnitude < 10)
-        {
-            position = GetRandomTarget();
-        }
-        return position;
-
-
-
+    void RunAway()
+    {
 
 
 
@@ -49,18 +47,25 @@ public class MinionsMovements : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((colorOfMinion == Color.red && other.name == "GoalRed")
+        if ((colorOfMinion == PlayerMovement.Colores.Red && other.name == "GoalRed")
            ||
-           (colorOfMinion == Color.yellow && other.name == "GoalYellow")
+           (colorOfMinion == PlayerMovement.Colores.Yellow && other.name == "GoalYellow")
            ||
-           (colorOfMinion == Color.blue && other.name == "GoalBlue")
+           (colorOfMinion == PlayerMovement.Colores.Blue && other.name == "GoalBlue")
            ||
-           (colorOfMinion == Color.green && other.name == "GoalGreen"))
+           (colorOfMinion == PlayerMovement.Colores.Green && other.name == "GoalGreen"))
         {
 
             nav.isStopped = true;
             //Debug.Log("pene");
         }
+
+        else
+        {
+            nav.SetDestination(startPosition);
+        }
+
+
     }
 
     // Update is called once per frame
@@ -69,24 +74,27 @@ public class MinionsMovements : MonoBehaviour
 
         //nav.SetDestination(target.position);
 
-        
-        
-
-        if (nav.remainingDistance == 0)
+        if(colorOfMinion == player.GetComponent<PlayerMovement>().colorNow)
         {
+            float dist = Vector3.Distance(transform.position, player.transform.position);
+            if (dist < enemyDistanceRun)
+            {
+                Vector3 dirToPlayer = transform.position - player.transform.position;
 
-            
-           
-           
-             nav.SetDestination(GetRandomTarget());
-            
+                Vector3 newPos = transform.position + dirToPlayer;
 
+                // nav.acceleration = 5f;
 
-            
+                nav.SetDestination(newPos);
+            }
 
-      
+            else if (nav.remainingDistance == 0)
+            {
+
+                nav.SetDestination(GetRandomTarget());
+
+            }
         }
-        
-        
+
     }
 }
