@@ -22,6 +22,7 @@ public class MinionsMovements : MonoBehaviour
     Vector3 nextPosition;
 
     public bool dancing;
+    public bool activate = true;
 
     private bool insideHouse = false;
 
@@ -58,6 +59,7 @@ public class MinionsMovements : MonoBehaviour
         nextPosition = transform.position + new Vector3(Random.Range(-nextPosDistance, nextPosDistance), 0, Random.Range(-nextPosDistance, nextPosDistance));
         return nextPosition;
     }
+
 
 
     private void OnTriggerEnter(Collider other)
@@ -164,7 +166,7 @@ public class MinionsMovements : MonoBehaviour
                 }
             }
 
-            else if (nav.remainingDistance == 0)
+            else if (nav.remainingDistance == 0 && activate)
             {
 
                 if (!dancing)

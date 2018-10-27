@@ -78,16 +78,13 @@ public class GameManager : MonoBehaviour
         {
             numberOfEnemiesSaved++;
             doorOpenPercentage = (int) (numberOfEnemiesSaved / numberOfTotalEnemies * 100);
-            if (doorOpenPercentage == 100)
-            {
-                UIController.ShowLevelComplete();
-                Invoke("OnLevelCompleted", 0.5f);
-            }
+            
         }
     }
 
-    void OnLevelCompleted()
+    public void OnLevelCompleted()
     {
+        UIController.ShowLevelComplete();
         timerActivated = false;
         levelNumber++;
         SetupLevel(levelNumber, levels[levelNumber].GetComponent<Level>().levelSeconds, levels[levelNumber].GetComponent<Level>().numberOfEnemies);
