@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -39,6 +40,15 @@ public class MainMenuController : MonoBehaviour
                 playedMenuSFX = true;
             }
             MoveHighlighter();
+        }
+
+        if(menuIndex == 0 && Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(1);
+        }
+        else if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Application.Quit();
         }
     }
 
