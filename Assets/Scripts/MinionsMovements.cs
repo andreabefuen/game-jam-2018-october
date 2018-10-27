@@ -11,7 +11,9 @@ public class MinionsMovements : MonoBehaviour
     //public Transform target;
     public float speed;
 
-    public float enemyDistanceRun = 20.0f;
+    public Animator anim;
+
+    public float enemyDistanceRun;
 
     Vector3 startPosition;
     Transform startTransform;
@@ -26,9 +28,14 @@ public class MinionsMovements : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         nav.speed = speed;
 
+       // anim = GetComponent<Animator>();
+
         //nav.SetDestination(GetRandomTarget());
 
         startPosition = this.transform.position;
+
+        anim.SetBool("isRunning", true);
+
     }
 
     Vector3 GetRandomTarget()
@@ -55,7 +62,7 @@ public class MinionsMovements : MonoBehaviour
            ||
            (colorOfMinion == PlayerMovement.Colores.Green && other.name == "GoalGreen"))
         {
-
+            anim.SetBool("isRunning", false);
             nav.isStopped = true;
             //Debug.Log("pene");
         }
