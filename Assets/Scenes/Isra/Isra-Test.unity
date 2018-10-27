@@ -201,16 +201,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2977777632970140313, guid: 6229380bf31ad154dbf75624cdff8a0a,
-        type: 3}
-      propertyPath: levels.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2977777632970140313, guid: 6229380bf31ad154dbf75624cdff8a0a,
-        type: 3}
-      propertyPath: levelPrefabs.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 4936675455292112989, guid: 6229380bf31ad154dbf75624cdff8a0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -281,42 +271,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2977777632970140313, guid: 6229380bf31ad154dbf75624cdff8a0a,
-        type: 3}
-      propertyPath: levelPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 5522054228533620874, guid: 97a5c4a105cc4c142b57f19b106b7a83,
-        type: 3}
-    - target: {fileID: 2977777632970140313, guid: 6229380bf31ad154dbf75624cdff8a0a,
-        type: 3}
-      propertyPath: levelPrefabs.Array.data[3]
-      value: 
-      objectReference: {fileID: 5522054228533620874, guid: 8b68e0d6c33b5c34fac0d61b2c61cdaf,
-        type: 3}
-    - target: {fileID: 2977777632970140313, guid: 6229380bf31ad154dbf75624cdff8a0a,
-        type: 3}
-      propertyPath: levels.Array.data[0]
-      value: 
-      objectReference: {fileID: 5522054228533620874, guid: 3bec46e0dcef2ca43a9921df6b96b5b4,
-        type: 3}
-    - target: {fileID: 2977777632970140313, guid: 6229380bf31ad154dbf75624cdff8a0a,
-        type: 3}
-      propertyPath: levels.Array.data[1]
-      value: 
-      objectReference: {fileID: 5522054228533620874, guid: fd3adb5a7470b654988661c7bfaa2882,
-        type: 3}
-    - target: {fileID: 2977777632970140313, guid: 6229380bf31ad154dbf75624cdff8a0a,
-        type: 3}
-      propertyPath: levels.Array.data[2]
-      value: 
-      objectReference: {fileID: 5522054228533620874, guid: 97a5c4a105cc4c142b57f19b106b7a83,
-        type: 3}
-    - target: {fileID: 2977777632970140313, guid: 6229380bf31ad154dbf75624cdff8a0a,
-        type: 3}
-      propertyPath: levels.Array.data[3]
-      value: 
-      objectReference: {fileID: 5522054228533620874, guid: 8b68e0d6c33b5c34fac0d61b2c61cdaf,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6229380bf31ad154dbf75624cdff8a0a, type: 3}
 --- !u!1 &1304284392
