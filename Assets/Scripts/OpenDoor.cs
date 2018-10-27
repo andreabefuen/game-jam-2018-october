@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-    public GameObject ManagerObject;
     GameManager GMScript;
     float OpenPerce, BaseScale, BasePosition, time, initPosition, initScale;
 
     // Start is called before the first frame update
     void Start()
     {
-        GMScript = ManagerObject.GetComponent<GameManager>();
+        GMScript = GameObject.Find("GameManager").GetComponent<GameManager>();
         OpenPerce = 0;
         BaseScale = 1.25f;
         BasePosition = 0.625f;
