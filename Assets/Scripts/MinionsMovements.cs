@@ -46,6 +46,8 @@ public class MinionsMovements : MonoBehaviour
 
         if (dancing)
         {
+            Debug.Log("A bailar");
+            anim.SetTrigger("isDancing");
            // anim.SetBool("isRunning", false);
            // anim.SetBool("isWalking", false);
            // anim.SetBool("isDancing", true);
