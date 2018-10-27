@@ -125,6 +125,7 @@ MonoBehaviour:
   anim: {fileID: 8176637780287532130}
   enemyDistanceRun: 20
   nextPosDistance: 50
+  dancing: 0
 --- !u!54 &8176637780633427119
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -221,7 +222,7 @@ PrefabInstance:
     - target: {fileID: 13700000, guid: ec3acc846cf2a134599bc0e538b93c68, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0561eb7ffd7b2bb49afa4ee216249481, type: 2}
+      objectReference: {fileID: 2100000, guid: ade2a49c01afd314ba561cfe103d6618, type: 2}
     - target: {fileID: 9500000, guid: ec3acc846cf2a134599bc0e538b93c68, type: 3}
       propertyPath: m_Controller
       value: 
