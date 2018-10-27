@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-    public float OpenPerce,BasePosition, time;
+    float OpenPerce,BasePosition, time;
 
     // Start is called before the first frame update
     void Start()

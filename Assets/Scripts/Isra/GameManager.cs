@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
 
     public void OnLevelCompleted()
     {
+        Debug.Log("New Level");
         //UIController.ShowLevelComplete();
         timerActivated = false;
         levelNumber++;
