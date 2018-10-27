@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void OnLevelCompleted()
+    public void OnLevelCompleted()
     {
         UIController.ShowLevelComplete();
         timerActivated = false;
