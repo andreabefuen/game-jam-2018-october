@@ -59,7 +59,7 @@ Camera:
   far clip plane: 1000
   field of view: 27.2
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 60.23
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -361,7 +361,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d7d4f1ee5642024a8a911d0617b3c07, type: 2}
+  - {fileID: 2100000, guid: a8a221e9a2967b141b8ada461d894100, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -452,7 +452,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d7d4f1ee5642024a8a911d0617b3c07, type: 2}
+  - {fileID: 2100000, guid: a8a221e9a2967b141b8ada461d894100, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -543,7 +543,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d7d4f1ee5642024a8a911d0617b3c07, type: 2}
+  - {fileID: 2100000, guid: a8a221e9a2967b141b8ada461d894100, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -640,7 +640,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d7d4f1ee5642024a8a911d0617b3c07, type: 2}
+  - {fileID: 2100000, guid: a8a221e9a2967b141b8ada461d894100, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -731,7 +731,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d7d4f1ee5642024a8a911d0617b3c07, type: 2}
+  - {fileID: 2100000, guid: a8a221e9a2967b141b8ada461d894100, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -822,7 +822,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d7d4f1ee5642024a8a911d0617b3c07, type: 2}
+  - {fileID: 2100000, guid: a8a221e9a2967b141b8ada461d894100, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -913,7 +913,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d7d4f1ee5642024a8a911d0617b3c07, type: 2}
+  - {fileID: 2100000, guid: a8a221e9a2967b141b8ada461d894100, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1043,7 +1043,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d7d4f1ee5642024a8a911d0617b3c07, type: 2}
+  - {fileID: 2100000, guid: a8a221e9a2967b141b8ada461d894100, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1134,7 +1134,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: abcd0b85eeb98a641af739cc4cad79b4, type: 2}
+  - {fileID: 2100000, guid: a8a221e9a2967b141b8ada461d894100, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1252,6 +1252,12 @@ Transform:
   m_Father: {fileID: 7709567735599294796}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8100368797693582343 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 39e10f94720f11343aa9b5c9642d55a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 8100368797693549223}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &110834375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1530,6 +1536,11 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 311
       objectReference: {fileID: 0}
+    - target: {fileID: 8039879418040569586, guid: 91c1cf03d61abd8469766a4daee0d9bb,
+        type: 3}
+      propertyPath: lightCone
+      value: 
+      objectReference: {fileID: 8100368797693582343}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91c1cf03d61abd8469766a4daee0d9bb, type: 3}
 --- !u!1001 &5858071393047727576
@@ -1623,7 +1634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 39e10f94720f11343aa9b5c9642d55a8, type: 3}
       propertyPath: m_LocalScale.z
-      value: 756.2324
+      value: 4141
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 39e10f94720f11343aa9b5c9642d55a8, type: 3}
       propertyPath: m_LocalScale.x
