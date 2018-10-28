@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.459
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.31094941, g: 0.34690136, b: 0.3994487, a: 0.459}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0.459}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -178,6 +178,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Level6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844971099437578354, guid: c23abf521176019499da22be2abe6828,
+        type: 3}
+      propertyPath: numberOfEnemies
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c23abf521176019499da22be2abe6828, type: 3}
