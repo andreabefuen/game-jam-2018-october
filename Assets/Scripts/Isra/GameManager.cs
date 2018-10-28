@@ -38,12 +38,7 @@ public class GameManager : MonoBehaviour
 
     public Animation directionalLightRGBAnimation;
 
-    void LoadLevel(int levelNumber)
-
-    {
-        currentLevelPrefab = levels[levelNumber];
-        currentLevelPrefab.SetActive(true);
-    }
+    void LoadLevel(int levelNumber) { currentLevelPrefab = Instantiate(levels[levelNumber], Vector3.zero, Quaternion.identity); }
 
     void Restart()
     {
@@ -81,7 +76,7 @@ public class GameManager : MonoBehaviour
     //public void GetNumberOfEnemies() { numberOfTotalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length; }
     public void OnEnemySaved()
     {
-        if(numberOfEnemiesSaved < numberOfTotalEnemies)
+        if(numberOfEnemiesSaved < numberOfTotalEnemies && levelSeconds > 0)
         {
             numberOfEnemiesSaved++;
             doorOpenPercentage = (int)(numberOfEnemiesSaved / numberOfTotalEnemies * 100);
@@ -91,7 +86,6 @@ public class GameManager : MonoBehaviour
         {
             directionalLightRGBAnimation.Play();
             timerActivated = false;
-            ExitManager.instance.ShowExit();
         }
 
     }
@@ -146,6 +140,6 @@ public class GameManager : MonoBehaviour
         {
             RestartLevel();
         }
-        //if (timerActivated) { DecrementTimer(); }
+        if (timerActivated) { DecrementTimer(); }
     }
 }
