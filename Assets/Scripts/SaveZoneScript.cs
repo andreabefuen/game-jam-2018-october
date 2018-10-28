@@ -15,7 +15,7 @@ public class SaveZoneScript : MonoBehaviour
     }
     public void EnemiesEscapeZone()
     {
-        GameManager.instance.numberOfEnemiesSaved -= EnemiesSaved.Count;
+        GameManager.instance.OnEnemyRemoved(EnemiesSaved.Count);
         foreach (GameObject Enemy in EnemiesSaved)
         {
             Enemy.GetComponent<MinionsMovements>().Escape();
