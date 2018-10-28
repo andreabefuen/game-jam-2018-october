@@ -110,5 +110,9 @@ public class GameManager : MonoBehaviour
         UIController.UpdateTimerGraphic(levelSeconds);
     }
 
-
+    
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K)) ProceedToNextLevel();
+    }
 }
