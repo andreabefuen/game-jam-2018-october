@@ -7,7 +7,6 @@ public class MainMenuController : MonoBehaviour
 {
     public GameObject highlighter;
     public int menuIndex = 0;
-    bool playedMenuSFX = false;
 
     bool canStart = false;
     // Start is called before the first frame update
@@ -21,33 +20,10 @@ public class MainMenuController : MonoBehaviour
         canStart = true;
     }
 
-    void RestartPlayedMenuSFX()
-    {
-        playedMenuSFX = false;
-    }
+
 
     void HandleInput()
     {
-        if (Input.GetAxis("Vertical") > 0 && menuIndex != 0)
-        {
-            menuIndex = 0;
-            if (!playedMenuSFX)
-            {
-                GetComponent<AudioSource>().Play();
-                playedMenuSFX = true;
-            }
-            MoveHighlighter();
-        }
-        else if (Input.GetAxis("Vertical") < 0 && menuIndex != 1)
-        {
-            menuIndex = 1;
-            if (!playedMenuSFX)
-            {
-                GetComponent<AudioSource>().Play();
-                playedMenuSFX = true;
-            }
-            MoveHighlighter();
-        }
 
         if(menuIndex == 0 && (Input.GetKeyDown(KeyCode.Space) || Input.GetAxis("Submit") > 0) && canStart)
         {
@@ -59,22 +35,7 @@ public class MainMenuController : MonoBehaviour
         }
     }
 
-    void MoveHighlighter()
-    {
-        if(menuIndex == 0)
-        {
-            highlighter.GetComponent<RectTransform>().anchoredPosition = new Vector3(81.2f, -77.56f, 0);
-            Invoke("RestartPlayedMenuSFX", Time.deltaTime);
 
-        }
-        else
-        {
-            highlighter.GetComponent<RectTransform>().anchoredPosition = new Vector3(81.2f, -152.56f, 0);
-            Invoke("RestartPlayedMenuSFX", Time.deltaTime);
-        }
-
-    }
-    // Update is called once per frame
     void Update()
     {
         HandleInput(); 
