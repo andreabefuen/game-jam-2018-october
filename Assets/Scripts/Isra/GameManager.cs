@@ -76,7 +76,6 @@ public class GameManager : MonoBehaviour
         }
         if (numberOfEnemiesSaved == numberOfTotalEnemies)
         {
-            directionalLightRGBAnimation.Play();
             timerActivated = false;
         }
 
