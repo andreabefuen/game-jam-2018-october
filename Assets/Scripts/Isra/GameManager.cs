@@ -35,7 +35,9 @@ public class GameManager : MonoBehaviour
     [Header("Timer")]
     public float levelSeconds;
     private bool timerActivated = false;
-    
+
+    public Animation directionalLightRGBAnimation;
+
     void LoadLevel(int levelNumber) { currentLevelPrefab = Instantiate(levels[levelNumber], Vector3.zero, Quaternion.identity); }
 
     void Restart()
@@ -46,6 +48,8 @@ public class GameManager : MonoBehaviour
 
     public void SetupLevel(int levelNumber, float levelSeconds, int numberOfTotalEnemies)
     {
+        directionalLightRGBAnimation.Stop();
+        directionalLightRGBAnimation.GetComponent<Light>().color = Color.white;
         // Restart the variables
         Restart();
 
@@ -78,6 +82,11 @@ public class GameManager : MonoBehaviour
             numberOfEnemiesSaved++;
             doorOpenPercentage = (int) (numberOfEnemiesSaved / numberOfTotalEnemies * 100);
         }
+        if (numberOfEnemiesSaved == numberOfTotalEnemies)
+        {
+            directionalLightRGBAnimation.Play();
+        }
+
     }
 
     public void OnLevelCompleted()
