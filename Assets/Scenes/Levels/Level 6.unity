@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.459
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.30759972, g: 0.34362543, b: 0.40030557, a: 0.459}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0.459}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -253,5 +253,20 @@ PrefabInstance:
       propertyPath: numberOfEnemies
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 3838928172305559437, guid: c23abf521176019499da22be2abe6828,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a8a221e9a2967b141b8ada461d894100, type: 2}
+    - target: {fileID: 3838928172305559435, guid: c23abf521176019499da22be2abe6828,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a8a221e9a2967b141b8ada461d894100, type: 2}
+    - target: {fileID: 3838928172305559439, guid: c23abf521176019499da22be2abe6828,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a8a221e9a2967b141b8ada461d894100, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c23abf521176019499da22be2abe6828, type: 3}
