@@ -46,26 +46,25 @@ public class GameManager : MonoBehaviour
         numberOfEnemiesSaved = 0;
     }
 
-    public void SetupLevel(int levelNumber, float levelSeconds, int numberOfTotalEnemies)
+    public void SetupLevel(int levelNumber, float levelSeconds)
     {
         directionalLightRGBAnimation.Stop();
         directionalLightRGBAnimation.GetComponent<Light>().color = Color.white;
-        // Restart the variables
-        Restart();
 
         // Set the level number and the graphics
         this.levelNumber = levelNumber;
-        UIController.UpdateLevelText(levelNumber);
 
         // Set the internal variables
         this.levelSeconds = levelSeconds;
-        this.numberOfTotalEnemies = numberOfTotalEnemies;
 
         // If there is a level instantiated, destroy it
         if (currentLevelPrefab != null) Destroy(currentLevelPrefab);
 
         // Initialize the graphics for the timer
         UIController.InitializeTimer(levelSeconds);
+
+
+        Restart();
 
         // Load the prefab of the level
         LoadLevel(levelNumber);
@@ -74,28 +73,44 @@ public class GameManager : MonoBehaviour
 
 
     public void StartTimer() { timerActivated = true; }
-    public void GetNumberOfEnemies() { numberOfTotalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length; }
+    //public void GetNumberOfEnemies() { numberOfTotalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length; }
     public void OnEnemySaved()
     {
         if(numberOfEnemiesSaved < numberOfTotalEnemies && levelSeconds > 0)
         {
             numberOfEnemiesSaved++;
-            doorOpenPercentage = (int) (numberOfEnemiesSaved / numberOfTotalEnemies * 100);
+            doorOpenPercentage = (int)(numberOfEnemiesSaved / numberOfTotalEnemies * 100);
+
         }
         if (numberOfEnemiesSaved == numberOfTotalEnemies)
         {
             directionalLightRGBAnimation.Play();
+            timerActivated = false;
         }
 
     }
 
+    public void OnEnemyRemoved(int number)
+    {
+        numberOfEnemiesSaved-= number;
+        doorOpenPercentage = (int)(numberOfEnemiesSaved / numberOfTotalEnemies * 100);
+    }
+
+    void RestartLevel()
+    {
+        SetupLevel(levelNumber, levels[levelNumber].GetComponent<Level>().levelSeconds);
+    }
+
+    void SetupNewLevel()
+    {
+        SetupLevel(levelNumber, levels[levelNumber].GetComponent<Level>().levelSeconds);
+    }
+
     public void OnLevelCompleted()
     {
-        Debug.Log("New Level");
         UIController.ShowLevelComplete();
-        timerActivated = false;
         levelNumber++;
-        SetupLevel(levelNumber, levels[levelNumber].GetComponent<Level>().levelSeconds, levels[levelNumber].GetComponent<Level>().numberOfEnemies);
+        Invoke("SetupNewLevel", 0.5f);
         UIController.Invoke("HideLevelComplete", 1f);
         Invoke("StartTimer", 1.5f);
     }
@@ -108,7 +123,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        SetupLevel(levelNumber, levels[levelNumber].GetComponent<Level>().levelSeconds, levels[levelNumber].GetComponent<Level>().numberOfEnemies);
+        SetupLevel(levelNumber, levels[levelNumber].GetComponent<Level>().levelSeconds);
         StartTimer();
     }
 
@@ -121,7 +136,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) { OnEnemySaved(); }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RestartLevel();
+        }
         if (timerActivated) { DecrementTimer(); }
     }
 }

@@ -9,4 +9,9 @@ public class Level : MonoBehaviour
     {
         GameManager.instance.numberOfTotalEnemies = numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
     }
+
+    void OnDestroy()
+    {
+        numberOfEnemies = 0;
+    }
 }
