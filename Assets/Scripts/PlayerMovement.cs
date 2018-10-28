@@ -18,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     Color newColor;
     bool changeColor;
 
+
+    bool loadedNextLevel = false;
+
     public GameObject lightCone;
     // Start is called before the first frame update
     void Start()
@@ -119,7 +122,17 @@ public class PlayerMovement : MonoBehaviour
         }
         if (other.gameObject.tag == "Exit")
         {
-            GameManager.instance.Invoke("OnLevelCompleted", 0.5f);
+            if (!loadedNextLevel)
+            {
+                GameManager.instance.Invoke("OnLevelCompleted", 0.5f);
+                loadedNextLevel = true;
+                Invoke("RestartLoadNextLevel", 2f);
+            }
         }
+    }
+
+    void RestartLoadNextLevel()
+    {
+        loadedNextLevel = false;
     }
 }
