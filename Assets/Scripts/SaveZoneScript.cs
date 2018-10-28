@@ -13,14 +13,15 @@ public class SaveZoneScript : MonoBehaviour
         EnemiesSaved.Add(Enemy);
         GameManager.instance.OnEnemySaved();
     }
-    public void EnemieEscape()
-    {/*
+    public void EnemiesEscapeZone()
+    {
         GameManager.instance.numberOfEnemiesSaved -= EnemiesSaved.Count;
         foreach (GameObject Enemy in EnemiesSaved)
         {
+            Enemy.GetComponent<MinionsMovements>().Escape();
         }
         EnemiesSaved.Clear();
         //Debug.Log(EnemiesSaved.Count);
-        */
+        
     }
 }
