@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
     private bool timerActivated = false;
 
 
-    public Animation directionalLightRGBAnimation;
 
     void ProceedToNextLevel()
     {
@@ -50,8 +49,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(levelNumber);
         UIController.instance.HideLevelComplete();
         Restart();
-        directionalLightRGBAnimation.Stop();
-        directionalLightRGBAnimation.GetComponent<Light>().color = Color.white;
+       
 
     }
 

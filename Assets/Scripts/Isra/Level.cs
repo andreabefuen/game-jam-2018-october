@@ -7,8 +7,6 @@ public class Level : MonoBehaviour
 
     void Start()
     {
-        GameManager.instance.directionalLightRGBAnimation.Stop();
-        GameManager.instance.directionalLightRGBAnimation.GetComponent<Light>().color = new Color32(130, 130, 130, 255);
         GameManager.instance.numberOfTotalEnemies = numberOfEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
     }
 
