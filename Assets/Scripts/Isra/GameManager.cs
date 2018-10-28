@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,30 +16,44 @@ public class GameManager : MonoBehaviour
      * 
      */
 
-
-    [Header("Lista de prefabs de niveles")]
-    public GameObject[] levels;
-    GameObject currentLevelPrefab;
-
     #region Variable references
     public static GameManager instance;
-    void Awake() { instance = this; }
+    bool firstTime = true;
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+        DontDestroyOnLoad(this);
+
+    }
     [HideInInspector] public UIController UIController;
     #endregion
 
     [Header("Current level variables")]
-    public int levelNumber;
+    public int levelNumber = 1;
     public float numberOfTotalEnemies;
     public float numberOfEnemiesSaved;
-    public int doorOpenPercentage;
+    public int doorOpenPercentage = 0;
 
     [Header("Timer")]
     public float levelSeconds;
     private bool timerActivated = false;
 
+
     public Animation directionalLightRGBAnimation;
 
-    void LoadLevel(int levelNumber) { currentLevelPrefab = Instantiate(levels[levelNumber], Vector3.zero, Quaternion.identity); }
+    void ProceedToNextLevel()
+    {
+        levelNumber++;
+        SceneManager.LoadScene(levelNumber);
+        UIController.instance.HideLevelComplete();
+        Restart();
+        directionalLightRGBAnimation.Stop();
+        directionalLightRGBAnimation.GetComponent<Light>().color = Color.white;
+
+    }
 
     void Restart()
     {
@@ -46,37 +61,16 @@ public class GameManager : MonoBehaviour
         numberOfEnemiesSaved = 0;
     }
 
-    public void SetupLevel(int levelNumber, float levelSeconds)
+    void Start()
     {
-        directionalLightRGBAnimation.Stop();
-        directionalLightRGBAnimation.GetComponent<Light>().color = Color.white;
-
-        // Set the level number and the graphics
-        this.levelNumber = levelNumber;
-
-        // Set the internal variables
-        this.levelSeconds = levelSeconds;
-
-        // If there is a level instantiated, destroy it
-        if (currentLevelPrefab != null) Destroy(currentLevelPrefab);
-
-        // Initialize the graphics for the timer
-        UIController.InitializeTimer(levelSeconds);
-
-
-        Restart();
-
-        // Load the prefab of the level
-        LoadLevel(levelNumber);
-
+        levelNumber = 1;
     }
-
 
     public void StartTimer() { timerActivated = true; }
     //public void GetNumberOfEnemies() { numberOfTotalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length; }
     public void OnEnemySaved()
     {
-        if(numberOfEnemiesSaved < numberOfTotalEnemies && levelSeconds > 0)
+        if(numberOfEnemiesSaved < numberOfTotalEnemies)
         {
             numberOfEnemiesSaved++;
             doorOpenPercentage = (int)(numberOfEnemiesSaved / numberOfTotalEnemies * 100);
@@ -96,35 +90,17 @@ public class GameManager : MonoBehaviour
         doorOpenPercentage = (int)(numberOfEnemiesSaved / numberOfTotalEnemies * 100);
     }
 
-    void RestartLevel()
-    {
-        SetupLevel(levelNumber, levels[levelNumber].GetComponent<Level>().levelSeconds);
-    }
-
-    void SetupNewLevel()
-    {
-        SetupLevel(levelNumber, levels[levelNumber].GetComponent<Level>().levelSeconds);
-    }
 
     public void OnLevelCompleted()
     {
         UIController.ShowLevelComplete();
-        levelNumber++;
-        Invoke("SetupNewLevel", 0.5f);
-        UIController.Invoke("HideLevelComplete", 1f);
-        Invoke("StartTimer", 1.5f);
+        ProceedToNextLevel();
     }
 
     void OnGameOver()
     {
         levelSeconds = 0;
         UIController.ShowInformationText("Game over!", Mathf.Infinity);
-    }
-
-    void Start()
-    {
-        SetupLevel(levelNumber, levels[levelNumber].GetComponent<Level>().levelSeconds);
-        StartTimer();
     }
 
     void DecrementTimer()
@@ -134,12 +110,5 @@ public class GameManager : MonoBehaviour
         UIController.UpdateTimerGraphic(levelSeconds);
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RestartLevel();
-        }
-        if (timerActivated) { DecrementTimer(); }
-    }
+
 }

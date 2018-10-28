@@ -122,12 +122,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (other.gameObject.tag == "Exit")
         {
-            if (!loadedNextLevel)
-            {
-                GameManager.instance.Invoke("OnLevelCompleted", 0.5f);
-                loadedNextLevel = true;
-                Invoke("RestartLoadNextLevel", 2f);
-            }
+            GameManager.instance.OnLevelCompleted();
         }
     }
 

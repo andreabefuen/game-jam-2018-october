@@ -9,6 +9,30 @@ EditorBuildSettings:
     path: Assets/Scenes/Isra/Isra-MainMenu.unity
     guid: 33e8d1feadfd2ef48b78f74c7a1af61a
   - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: 819700025b053b34ea6dd570e41c6da7
+    path: Assets/Scenes/Levels/Level 1.unity
+    guid: b77df8197ebc81a4a873c1a9eb288443
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 2.unity
+    guid: 728cf37b7823e394a97acaeca1ae3d59
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 3.unity
+    guid: 97d63df30f4742a46bca513606492d3d
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 4.unity
+    guid: 7eb90034a81a7a0409d498e504076251
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 5.unity
+    guid: cc254359e214aa1469b5f29b94c58f9b
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 6.unity
+    guid: c9c4027473c8e0547831ebfb00fb8540
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 7.unity
+    guid: 54fadeacc96f2504281ee1365752d13c
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 8.unity
+    guid: e5b0121498511c343b262b1d90755006
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 9.unity
+    guid: 4ebc532daecb33d45af2670c79843e29
   m_configObjects: {}

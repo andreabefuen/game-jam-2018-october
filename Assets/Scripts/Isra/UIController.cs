@@ -18,6 +18,7 @@ public class UIController : MonoBehaviour
     float levelSeconds;
    
 
+
     public void InitializeTimer(int levelSeconds) { timerSlider.value = timerSlider.maxValue = this.levelSeconds = levelSeconds; }
     public void InitializeTimer(float levelSeconds) { timerSlider.value = timerSlider.maxValue = this.levelSeconds = levelSeconds; }
 
@@ -52,7 +53,6 @@ public class UIController : MonoBehaviour
 
     public void HideLevelComplete()
     {
-        timerSlider.targetGraphic.color = Color.green;
         levelCompleteAnimation.Play("HideLevelComplete");
     }
 
