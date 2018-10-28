@@ -35,4 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Level 9.unity
     guid: 4ebc532daecb33d45af2670c79843e29
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 10.unity
+    guid: 182019765c5d4a1428310623dfe682b8
+  - enabled: 1
+    path: Assets/Scenes/Isra/Isra-FinalScene.unity
+    guid: a61fd25757f55aa43bda0a8ac03f45a4
   m_configObjects: {}

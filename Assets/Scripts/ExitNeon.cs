@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExitNeon : MonoBehaviour
 {
-    public GameObject NeonOn, NeonOff;
+    public GameObject NeonON, NeonOff;
 
     void Start()
     {
@@ -18,7 +18,7 @@ public class ExitNeon : MonoBehaviour
         if (GameManager.instance.doorOpenPercentage == 100)
         {
             NeonOff.SetActive(false);
-            NeonOn.SetActive(true);
+            NeonON.SetActive(true);
         }
     }
 }
