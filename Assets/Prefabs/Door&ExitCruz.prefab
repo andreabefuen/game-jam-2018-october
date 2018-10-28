@@ -1,8 +1,8 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!4 &4690181480805153350 stripped
+--- !u!4 &4219785070096152350 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 2520222686890691309, guid: ab42bb0d7a0a78345839e1e4618cdaba,
+  m_CorrespondingSourceObject: {fileID: 6440374184019380149, guid: ab42bb0d7a0a78345839e1e4618cdaba,
     type: 3}
   m_PrefabInstance: {fileID: 7201112984968605867}
   m_PrefabAsset: {fileID: 0}
@@ -28,7 +28,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1663936694588842362}
   m_Layer: 0
-  m_Name: Door&ExitCruz (Missing Prefab)
+  m_Name: Door&ExitCruz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ Transform:
   m_Children:
   - {fileID: 375214727553941175}
   - {fileID: 3927999888934300821}
-  - {fileID: 4690181480805153350}
+  - {fileID: 4219785070096152350}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -255,6 +255,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Exit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440374184019380149, guid: ab42bb0d7a0a78345839e1e4618cdaba,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab42bb0d7a0a78345839e1e4618cdaba, type: 3}
