@@ -5,13 +5,14 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour
 {
     float OpenPerce,BasePosition, time;
-
+    GameObject ExitLight;
     // Start is called before the first frame update
     void Start()
     {
         OpenPerce = 0;
         BasePosition = transform.position.y;
         time = 0;
+        ExitLight = GameObject.Find("Exit");
     }
 
     // Update is called once per frame
