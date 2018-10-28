@@ -118,6 +118,14 @@ public class MinionsMovements : MonoBehaviour
 
     }
 
+    void Stun()
+    {
+        anim.SetTrigger("isDancing");
+        //dancing = true;
+        nav.isStopped = true;
+
+    }
+
     void StopMinion()
     {
 
@@ -145,13 +153,20 @@ public class MinionsMovements : MonoBehaviour
             
             float dist = Vector3.Distance(transform.position, player.transform.position);
 
+            if(dist < enemyDistanceRun && colorOfMinion != player.GetComponent<PlayerMovement>().colorNow)
+            {
+                Stun();
+            }
+
             //Si la distancia entre el player y el minion es menor que un cierto parámetro y además el color del haz de luz es igual al del minion
-            if (dist < enemyDistanceRun && colorOfMinion == player.GetComponent<PlayerMovement>().colorNow)
+            else if (dist < enemyDistanceRun && colorOfMinion == player.GetComponent<PlayerMovement>().colorNow)
             {
                 Vector3 dirToPlayer = transform.position - player.transform.position;
 
                 Vector3 newPos = transform.position + dirToPlayer;
 
+                nav.speed = speed;
+                nav.isStopped = false;
                 // nav.acceleration = 5f;
 
                 //Si no esta bailando entonces CORRE
@@ -176,6 +191,8 @@ public class MinionsMovements : MonoBehaviour
                     //anim.SetBool("isRunning", false);
                     //anim.SetBool("isWalking", true);
                     //anim.SetBool("isDancing", false);
+                    nav.speed = speed;
+                    nav.isStopped = false;
                     anim.SetTrigger("isWalking");
                     print("Salida 2");
                     nav.speed /= 2;
