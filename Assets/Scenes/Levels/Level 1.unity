@@ -302,6 +302,41 @@ PrefabInstance:
       propertyPath: numberOfEnemies
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8176637781051686437, guid: b07b109a33afee84093a53ef75a34100,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176637780134074643, guid: b07b109a33afee84093a53ef75a34100,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176637780655596023, guid: b07b109a33afee84093a53ef75a34100,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176637779264116757, guid: b07b109a33afee84093a53ef75a34100,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176637781012150679, guid: b07b109a33afee84093a53ef75a34100,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176637779931998570, guid: b07b109a33afee84093a53ef75a34100,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176637780639193987, guid: b07b109a33afee84093a53ef75a34100,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b07b109a33afee84093a53ef75a34100, type: 3}
 --- !u!1 &2117729961
