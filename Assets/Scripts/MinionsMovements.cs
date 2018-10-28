@@ -34,23 +34,15 @@ public class MinionsMovements : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         nav.speed = speed;
 
-       // anim = GetComponent<Animator>();
-
-        //nav.SetDestination(GetRandomTarget());
 
         startPosition = this.transform.position;
-        //anim.SetTrigger("isWalking");
-       // anim.SetBool("isWalking", true);
-       // anim.SetBool("isRunning", false);
-       // anim.SetBool("isDancing", false);
+
 
         if (dancing)
         {
             Debug.Log("A bailar");
             anim.SetTrigger("isDancing");
-           // anim.SetBool("isRunning", false);
-           // anim.SetBool("isWalking", false);
-           // anim.SetBool("isDancing", true);
+
         }
 
     }
@@ -66,46 +58,49 @@ public class MinionsMovements : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!insideHouse)
+        //Si no estan dentro de la casa y colisionan con el color
+        if (!insideHouse && other.tag == "ColorZone")
         {
+            //Si el color es el suyo
             if ((colorOfMinion == PlayerMovement.Colores.Red && other.name == "GoalRed")
-          ||
-          (colorOfMinion == PlayerMovement.Colores.Yellow && other.name == "GoalYellow")
-          ||
-          (colorOfMinion == PlayerMovement.Colores.Blue && other.name == "GoalBlue")
-          ||
-          (colorOfMinion == PlayerMovement.Colores.Green && other.name == "GoalGreen")
-          ||
-          (colorOfMinion == PlayerMovement.Colores.White && other.name == "GoalWhite")
-          )
+            ||
+             (colorOfMinion == PlayerMovement.Colores.Yellow && other.name == "GoalYellow")
+            ||
+            (colorOfMinion == PlayerMovement.Colores.Blue && other.name == "GoalBlue")
+            ||
+             (colorOfMinion == PlayerMovement.Colores.Green && other.name == "GoalGreen")
+            ||
+            (colorOfMinion == PlayerMovement.Colores.White && other.name == "GoalWhite")
+            )
             {
-
+                //Se quedan en su casita y además aumenta el número de enemigos en su casita
+                insideHouse = true;
                 Invoke("StopMinion", 0.5f);
 
                 other.GetComponent<SaveZoneScript>().EnemieEnterSave(gameObject);
 
 
-                //Debug.Log("pene");
             }
 
+            //Si su color es diferente del que toca 
             else if ((colorOfMinion == PlayerMovement.Colores.Red && other.name != "GoalRed")
-               ||
-               (colorOfMinion == PlayerMovement.Colores.Yellow && other.name != "GoalYellow")
-               ||
-               (colorOfMinion == PlayerMovement.Colores.Blue && other.name != "GoalBlue")
-               ||
-               (colorOfMinion == PlayerMovement.Colores.Green && other.name != "GoalGreen")
-               ||
-               (colorOfMinion == PlayerMovement.Colores.White && other.name != "GoalWhite")
-               )
-            {
-                nav.SetDestination(startPosition);
-                anim.SetTrigger("isWalking");
-                //anim.SetBool("isWalking", true);
-                //anim.SetBool("isRunning", false);
-                //anim.SetBool("isDancing", false);
-                nav.speed = speed;
-            }
+             ||
+             (colorOfMinion == PlayerMovement.Colores.Yellow && other.name != "GoalYellow")
+             ||
+             (colorOfMinion == PlayerMovement.Colores.Blue && other.name != "GoalBlue")
+             ||
+             (colorOfMinion == PlayerMovement.Colores.Green && other.name != "GoalGreen")
+             ||
+             (colorOfMinion == PlayerMovement.Colores.White && other.name != "GoalWhite")
+             )
+              {
+                    // No entra en esa casita y se va al centro
+                    //Libera a los demás
+                    nav.SetDestination(startPosition);
+                    anim.SetTrigger("isWalking");
+                    other.GetComponent<SaveZoneScript>().EnemiesEscapeZone();
+                    nav.speed = speed;
+                }
 
             else
             {
@@ -115,6 +110,20 @@ public class MinionsMovements : MonoBehaviour
         
        
 
+
+    }
+
+    public void Escape()
+    {
+        nav.enabled = true;
+        nav.speed = speed;
+        nav.isStopped = false;
+        anim.SetTrigger("isRunning");
+        insideHouse = false;
+        dancing = false;
+
+        nav.SetDestination(startPosition);
+        
 
     }
 
@@ -129,24 +138,29 @@ public class MinionsMovements : MonoBehaviour
     void StopMinion()
     {
 
-        insideHouse = true;
-       //anim.SetBool("isRunning", false);
-       //anim.SetBool("isWalking", false);
-       //anim.SetBool("isDancing", false);
-
         nav.speed = 0;
-        //anim.Play("Idle");
-        anim.SetTrigger("isIdle");
+
+        anim.Play("Idle");
         nav.enabled = false;
 
-        //nav.isStopped = true;
+    }
+
+    void ResetMinion()
+    {
+        nav.speed = speed;
+        nav.enabled = true;
+        nav.isStopped = false;
+        anim.SetTrigger("isWalking");
+
+        nav.SetDestination(startPosition);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        //nav.SetDestination(target.position);
+
 
         if (!insideHouse && nav.enabled == true)
         {
@@ -167,18 +181,15 @@ public class MinionsMovements : MonoBehaviour
 
                 nav.speed = speed;
                 nav.isStopped = false;
-                // nav.acceleration = 5f;
+
 
                 //Si no esta bailando entonces CORRE
                 if (!dancing)
                 {
 
                     anim.SetTrigger("isRunning");
-                   //anim.SetBool("isRunning", true);
-                   //anim.SetBool("isWalking", false);
-                   //anim.SetBool("isDancing", false);
+         
                     nav.speed *= 2;
-                    print("Salida 1");
                     nav.SetDestination(newPos);
                 }
             }
@@ -188,27 +199,16 @@ public class MinionsMovements : MonoBehaviour
 
                 if (!dancing)
                 {
-                    //anim.SetBool("isRunning", false);
-                    //anim.SetBool("isWalking", true);
-                    //anim.SetBool("isDancing", false);
+                  
                     nav.speed = speed;
                     nav.isStopped = false;
                     anim.SetTrigger("isWalking");
-                    print("Salida 2");
                     nav.speed /= 2;
                     nav.SetDestination(GetRandomTarget());
                 }
 
             }
 
-        }
-
-        if (insideHouse)
-        {
-            StopMinion();
-            
-            anim.SetTrigger("isIdle");
-            //anim.Play("Idle");
         }
     }
 }

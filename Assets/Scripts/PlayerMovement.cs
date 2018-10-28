@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         if (theLight.spotAngle < 75 && sizer > 0 || theLight.spotAngle > 20 && sizer < 0)
         {
             theLight.spotAngle += sizer;
-            lightCone.transform.localScale += new Vector3(sizer*12, sizer*12, 0);
+            lightCone.transform.localScale += new Vector3(sizer*20, sizer*20, 0);
             theLight.intensity = theLight.spotAngle;
             col.radius += sizer * 0.16f;
             speed = baseSpeed / (theLight.spotAngle / 20);
